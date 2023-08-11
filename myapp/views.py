@@ -12,6 +12,9 @@ def foo(request):
     html = "<h1>fooが指定されたときのページです</h2>"
     return HttpResponse(html)
 
+#def hello(request):
+#return render(request,'index.html',context)
+
 def hello(request):
     context = {
         'datetime':datetime.now(),
@@ -20,6 +23,6 @@ def hello(request):
     return render(request,'index.html',context)
 
 def show_item(request,item_code):
-    Item = item.objects.get(code = item_code)
+    Item = item.objects.get(code=item_code)
     context = {'item':Item,}
     return render(request,'item.html',context)
